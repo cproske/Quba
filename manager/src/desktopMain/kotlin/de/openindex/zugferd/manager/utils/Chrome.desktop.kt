@@ -492,7 +492,7 @@ private fun openAttachmentInWindow(url: String, title: String) {
                     downloadItem: org.cef.callback.CefDownloadItem?,
                     suggestedName: String?,
                     callback: org.cef.callback.CefBeforeDownloadCallback?,
-                ) {
+                ): Boolean {
                     val entry = globalAttachmentData[title]
                     if (entry != null) {
                         val (bytes, _) = entry
@@ -510,6 +510,7 @@ private fun openAttachmentInWindow(url: String, title: String) {
                     } else {
                         callback?.Continue(suggestedName ?: title, true)
                     }
+                    return false
                 }
             })
 

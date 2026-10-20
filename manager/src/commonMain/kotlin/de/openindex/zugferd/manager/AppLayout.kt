@@ -186,7 +186,7 @@ private fun AppNavigation() {
         Spacer(modifier = Modifier.height(2.dp))
 
         // Main section items
-        AppSection.entries.forEach {
+        AppSection.entries.filter { it != AppSection.CREATE }.forEach {
             AppSectionNavigationItem(section = it, isExpanded = isExpanded)
         }
 
